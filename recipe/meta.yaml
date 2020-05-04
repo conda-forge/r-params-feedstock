@@ -1,4 +1,4 @@
-{% set version = '0.6.1' %}
+{% set version = "0.6.1" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -16,7 +16,7 @@ source:
 
 build:
   noarch: generic
-  number: 1001
+  number: 1002
 
   rpaths:
     - lib/R/lib/
@@ -38,11 +38,12 @@ test:
 
 about:
   home: https://github.com/sahilseth/params
-  license: GPL-2
-  summary: An interface to simplify organizing parameters used in a package, using external configuration
-    files. This attempts to provide a cleaner alternative to options().
+  license: GPL-2.0-only
+  summary: An interface to simplify organizing parameters used in a package, using external configuration files. This attempts to provide a cleaner alternative to options().
   license_family: GPL2
 
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 extra:
   recipe-maintainers:
     - conda-forge/r
