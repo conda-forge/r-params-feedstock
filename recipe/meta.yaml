@@ -1,5 +1,4 @@
 {% set version = "0.7.3" %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,27 +7,35 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: params_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/params_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/params/params_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/params_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/params/params_{{ version }}.tar.gz
   sha256: b2d90477b85cdc4ace643fdee5c92820ad58659b800a8bfd36e40bfaba4d317e
 
 build:
-  noarch: generic
+  merge_build_host: True  # [win]
   number: 0
-
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{ posix }}zip               # [win]
+  host:
     - r-base
+    - r-rcpptoml
+    - r-glue
+    - r-purrr
+    - r-readr >=1.4.0
     - r-whisker
-
   run:
     - r-base
+    - r-rcpptoml
+    - r-glue
+    - r-purrr
+    - r-readr >=1.4.0
     - r-whisker
 
 test:
@@ -41,13 +48,9 @@ about:
   license: GPL-2.0-only
   summary: An interface to simplify organizing parameters used in a package, using external configuration files. This attempts to provide a cleaner alternative to options().
   license_family: GPL2
-
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
