@@ -1,11 +1,11 @@
-About r-params
-==============
+About r-params-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-params-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/sahilseth/params
 
 Package license: GPL-2.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-params-feedstock/blob/main/LICENSE.txt)
 
 Summary: An interface to simplify organizing parameters used in a package, using external configuration files. This attempts to provide a cleaner alternative to options().
 
