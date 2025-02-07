@@ -1,4 +1,4 @@
-{% set version = "0.7.3" %}
+{% set version = "0.7.7" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/params_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/params/params_{{ version }}.tar.gz
-  sha256: b2d90477b85cdc4ace643fdee5c92820ad58659b800a8bfd36e40bfaba4d317e
+  sha256: 6397aac3b638d352de443ae2684e1ce9b6ae72b55f64efb233b20b63f5e626cb
 
 build:
-  number: 3
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
